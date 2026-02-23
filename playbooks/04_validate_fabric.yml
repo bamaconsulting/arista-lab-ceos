@@ -1,4 +1,5 @@
 # playbooks/04_validate_fabric.yml
+# Purpose: Runs AVD eos_validate_state to validate operational fabric state.
 ---
 - name: Validate fabric state
   hosts: FABRIC

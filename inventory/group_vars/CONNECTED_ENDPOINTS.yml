@@ -1,4 +1,5 @@
 # inventory/group_vars/CONNECTED_ENDPOINTS.yml
+# Purpose: Defines external endpoints, adapter settings, and endpoint port-channels.
 connected_endpoints_keys:
   - key: servers
     type: server

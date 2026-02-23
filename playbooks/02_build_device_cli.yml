@@ -1,4 +1,5 @@
 # playbooks/02_build_device_cli.yml
+# Purpose: Runs AVD eos_cli_config_gen to render EOS CLI configs and docs.
 ---
 - name: Build EOS CLI configurations and documentation
   hosts: FABRIC

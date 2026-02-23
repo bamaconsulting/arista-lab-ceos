@@ -1,4 +1,5 @@
 # inventory/group_vars/NETWORK_SERVICES.yml
+# Purpose: Defines tenant VRFs, SVIs, and L2/L3 network services for the fabric.
 tenants:
   - name: TENANT1
     mac_vrf_vni_base: 10000

@@ -1,3 +1,5 @@
+# build/structured_configs/dc1-leaf2b.yml
+# Purpose: Auto-generated AVD structured configuration data for device dc1-leaf2b.
 aaa_root:
   disabled: true
 config_end: true

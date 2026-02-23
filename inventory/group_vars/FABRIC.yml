@@ -1,4 +1,5 @@
 # inventory/group_vars/FABRIC.yml
+# Purpose: Defines fabric-wide design, routing, and authentication settings.
 fabric_name: FABRIC
 
 # Design type

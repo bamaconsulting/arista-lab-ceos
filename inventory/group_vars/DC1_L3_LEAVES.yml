@@ -1,4 +1,5 @@
 # inventory/group_vars/DC1_L3_LEAVES.yml
+# Purpose: Defines L3 leaf defaults, pools, and node groups for DC1 leaf switches.
 type: l3leaf
 
 l3leaf:

@@ -1,4 +1,5 @@
 # inventory/group_vars/all.yml
+# Purpose: Shared Ansible and AVD defaults applied to all inventory hosts.
 ansible_connection: httpapi
 ansible_network_os: eos
 ansible_user: admin

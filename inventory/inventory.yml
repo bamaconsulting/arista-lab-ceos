@@ -1,4 +1,5 @@
 # inventory/inventory.yml
+# Purpose: Main Ansible inventory hierarchy for fabric, services, and endpoints.
 all:
   children:
     FABRIC:

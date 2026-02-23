@@ -1,2 +1,3 @@
 # inventory/group_vars/DC1.yml
+# Purpose: Declares datacenter-specific metadata shared by DC1 device groups.
 dc_name: DC1

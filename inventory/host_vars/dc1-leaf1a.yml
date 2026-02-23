@@ -1,4 +1,5 @@
 # inventory/host_vars/dc1-leaf1a.yml
+# Purpose: Host-specific EOS CLI overrides for dc1-leaf1a.
 eos_cli: |
   interface Port-Channel5
      spanning-tree portfast edge

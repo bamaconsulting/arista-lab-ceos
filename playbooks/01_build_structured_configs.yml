@@ -1,4 +1,5 @@
 # playbooks/01_build_structured_configs.yml
+# Purpose: Runs AVD eos_designs to build structured configuration data.
 ---
 - name: Build AVD structured configurations
   hosts: FABRIC

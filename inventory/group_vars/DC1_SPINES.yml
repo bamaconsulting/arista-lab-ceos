@@ -1,4 +1,5 @@
 # inventory/group_vars/DC1_SPINES.yml
+# Purpose: Defines spine role defaults and per-node attributes for DC1 spines.
 type: spine
 
 spine:

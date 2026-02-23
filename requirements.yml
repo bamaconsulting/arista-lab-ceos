@@ -1,4 +1,5 @@
 # requirements.yml
+# Purpose: Lists required Ansible collections and version constraints for this lab.
 collections:
   - name: arista.avd
     version: ">=5.7.0,<5.8.0"
