@@ -1,0 +1,27 @@
+# inventory/inventory.yml
+all:
+  children:
+    FABRIC:
+      children:
+        DC1:
+          children:
+            DC1_SPINES:
+              hosts:
+                dc1-spine1: { ansible_host: 172.100.100.10 }
+                dc1-spine2: { ansible_host: 172.100.100.11 }
+            DC1_L3_LEAVES:
+              children:
+                DC1_LEAF1:
+                  hosts:
+                    dc1-leaf1a: { ansible_host: 172.100.100.101 }
+                    dc1-leaf1b: { ansible_host: 172.100.100.102 }
+                DC1_LEAF2:
+                  hosts:
+                    dc1-leaf2a: { ansible_host: 172.100.100.103 }
+                    dc1-leaf2b: { ansible_host: 172.100.100.104 }
+    NETWORK_SERVICES:
+      children:
+        DC1_L3_LEAVES:
+    CONNECTED_ENDPOINTS:
+      children:
+        DC1_L3_LEAVES:

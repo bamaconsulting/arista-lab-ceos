@@ -1,0 +1,33 @@
+# inventory/group_vars/CONNECTED_ENDPOINTS.yml
+connected_endpoints_keys:
+  - key: servers
+    type: server
+
+servers:
+  - name: server1
+    adapters:
+      - switches: [dc1-leaf1a, dc1-leaf1b]
+        switch_ports: [Ethernet5, Ethernet5]
+        endpoint_ports: [eth1, eth1]
+        mode: trunk
+        native_vlan: 4092
+        vlans: "11-12,21-22"
+        port_channel:
+          mode: active
+          channel_id: 5
+          description: SERVER_dc1-leaf1-server1_Bond1
+          endpoint_port_channel: Bond1
+  - name: server2
+    adapters:
+      - switches: [dc1-leaf2a, dc1-leaf2b]
+        switch_ports: [Ethernet5, Ethernet5]
+        endpoint_ports: [eth1, eth2]
+        mode: trunk
+        native_vlan: 4092
+        vlans: "11-12,21-22"
+        spanning_tree_portfast: edge
+        port_channel:
+          mode: active
+          channel_id: 5
+          description: SERVER_dc1-leaf2-server2_Bond1
+          endpoint_port_channel: Bond1

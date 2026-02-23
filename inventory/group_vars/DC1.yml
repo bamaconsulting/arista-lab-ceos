@@ -1,0 +1,2 @@
+# inventory/group_vars/DC1.yml
+dc_name: DC1

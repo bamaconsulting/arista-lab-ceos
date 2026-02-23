@@ -1,0 +1,372 @@
+[
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP EVPN Peer: dc1-leaf1a (IP: 10.255.1.1)"
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP EVPN Peer: dc1-leaf1b (IP: 10.255.1.2)"
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP EVPN Peer: dc1-leaf2a (IP: 10.255.1.3)"
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP EVPN Peer: dc1-leaf2b (IP: 10.255.1.4)"
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP IPv4 Unicast Peer: dc1-leaf1a (IP: 10.255.255.1)"
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP IPv4 Unicast Peer: dc1-leaf1b (IP: 10.255.255.5)"
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP IPv4 Unicast Peer: dc1-leaf2a (IP: 10.255.255.9)"
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP IPv4 Unicast Peer: dc1-leaf2b (IP: 10.255.255.13)"
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyLLDPNeighbors",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Port: Ethernet1 Neighbor: dc1-leaf1a Neighbor Port: Ethernet1",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Local: Ethernet1 - Remote: dc1-leaf1a Ethernet1"
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyLLDPNeighbors",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Port: Ethernet2 Neighbor: dc1-leaf1b Neighbor Port: Ethernet1",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Local: Ethernet2 - Remote: dc1-leaf1b Ethernet1"
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyLLDPNeighbors",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Port: Ethernet3 Neighbor: dc1-leaf2a Neighbor Port: Ethernet1",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Local: Ethernet3 - Remote: dc1-leaf2a Ethernet1"
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyLLDPNeighbors",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Port: Ethernet4 Neighbor: dc1-leaf2b Neighbor Port: Ethernet1",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Local: Ethernet4 - Remote: dc1-leaf2b Ethernet1"
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Destination 10.255.255.1 from 10.255.255.0 in VRF default",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Source: P2P Interface Ethernet1 (IP: 10.255.255.0) - Destination: dc1-leaf1a Ethernet1 (IP: 10.255.255.1)"
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Destination 10.255.255.5 from 10.255.255.4 in VRF default",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Source: P2P Interface Ethernet2 (IP: 10.255.255.4) - Destination: dc1-leaf1b Ethernet1 (IP: 10.255.255.5)"
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Destination 10.255.255.9 from 10.255.255.8 in VRF default",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Source: P2P Interface Ethernet3 (IP: 10.255.255.8) - Destination: dc1-leaf2a Ethernet1 (IP: 10.255.255.9)"
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Destination 10.255.255.13 from 10.255.255.12 in VRF default",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Source: P2P Interface Ethernet4 (IP: 10.255.255.12) - Destination: dc1-leaf2b Ethernet1 (IP: 10.255.255.13)"
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyEnvironmentCooling",
+    "categories": [
+      "hardware"
+    ],
+    "description": "Verifies the status of power supply fans and all fan trays.",
+    "result": "skipped",
+    "messages": [
+      "VerifyEnvironmentCooling test is not supported on cEOSLab"
+    ],
+    "custom_field": "Accepted States: 'ok'"
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyEnvironmentPower",
+    "categories": [
+      "hardware"
+    ],
+    "description": "Verifies the power supplies state and input voltage.",
+    "result": "skipped",
+    "messages": [
+      "VerifyEnvironmentPower test is not supported on cEOSLab"
+    ],
+    "custom_field": "Accepted States: 'ok'"
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyTemperature",
+    "categories": [
+      "hardware"
+    ],
+    "description": "Verifies if the device temperature is within acceptable limits.",
+    "result": "skipped",
+    "messages": [
+      "VerifyTemperature test is not supported on cEOSLab"
+    ]
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyTransceiversManufacturers",
+    "categories": [
+      "hardware"
+    ],
+    "description": "Verifies if all the transceivers come from approved manufacturers.",
+    "result": "skipped",
+    "messages": [
+      "VerifyTransceiversManufacturers test is not supported on cEOSLab"
+    ],
+    "custom_field": "Accepted Manufacturers: 'Arista Networks', 'Arastra, Inc.', 'Not Present'"
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Interface: Ethernet1",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Interface Ethernet1 - P2P_dc1-leaf1a_Ethernet1 = 'up'"
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Interface: Ethernet2",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Interface Ethernet2 - P2P_dc1-leaf1b_Ethernet1 = 'up'"
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Interface: Ethernet3",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Interface Ethernet3 - P2P_dc1-leaf2a_Ethernet1 = 'up'"
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Interface: Ethernet4",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Interface Ethernet4 - P2P_dc1-leaf2b_Ethernet1 = 'up'"
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Interface: Loopback0",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Interface Loopback0 - ROUTER_ID = 'up'"
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyRoutingProtocolModel",
+    "categories": [
+      "routing"
+    ],
+    "description": "Verifies the configured routing protocol model.",
+    "result": "success",
+    "custom_field": "Routing protocol model: multi-agent"
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyNTP",
+    "categories": [
+      "system"
+    ],
+    "description": "Verifies if NTP is synchronised.",
+    "result": "failure",
+    "messages": [
+      "NTP status mismatch - Expected: synchronised Actual: NTP is disabled."
+    ]
+  },
+  {
+    "name": "dc1-spine1",
+    "test": "VerifyReloadCause",
+    "categories": [
+      "system"
+    ],
+    "description": "Verifies the last reload cause of the device.",
+    "result": "success"
+  }
+]

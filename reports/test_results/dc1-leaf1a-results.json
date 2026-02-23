@@ -1,0 +1,735 @@
+[
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP EVPN Peer: dc1-spine1 (IP: 10.255.0.1)"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP EVPN Peer: dc1-spine2 (IP: 10.255.0.2)"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP IPv4 Unicast Peer: dc1-leaf1b (IP: 10.255.253.1)"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP IPv4 Unicast Peer: dc1-spine1 (IP: 10.255.255.0)"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP IPv4 Unicast Peer: dc1-spine2 (IP: 10.255.255.2)"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyLLDPNeighbors",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Port: Ethernet1 Neighbor: dc1-spine1 Neighbor Port: Ethernet1",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Local: Ethernet1 - Remote: dc1-spine1 Ethernet1"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyLLDPNeighbors",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Port: Ethernet2 Neighbor: dc1-spine2 Neighbor Port: Ethernet1",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Local: Ethernet2 - Remote: dc1-spine2 Ethernet1"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyLLDPNeighbors",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Port: Ethernet3 Neighbor: dc1-leaf1b Neighbor Port: Ethernet3",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Local: Ethernet3 - Remote: dc1-leaf1b Ethernet3"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyLLDPNeighbors",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Port: Ethernet4 Neighbor: dc1-leaf1b Neighbor Port: Ethernet4",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Local: Ethernet4 - Remote: dc1-leaf1b Ethernet4"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Destination 10.255.1.1 from 10.255.1.1 in VRF default",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Source: Loopback0 (IP: 10.255.1.1) - Destination: dc1-leaf1a Loopback0 (IP: 10.255.1.1)"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Destination 10.255.1.2 from 10.255.1.1 in VRF default",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Source: Loopback0 (IP: 10.255.1.1) - Destination: dc1-leaf1b Loopback0 (IP: 10.255.1.2)"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Destination 10.255.1.3 from 10.255.1.1 in VRF default",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Source: Loopback0 (IP: 10.255.1.1) - Destination: dc1-leaf2a Loopback0 (IP: 10.255.1.3)"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Destination 10.255.1.4 from 10.255.1.1 in VRF default",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Source: Loopback0 (IP: 10.255.1.1) - Destination: dc1-leaf2b Loopback0 (IP: 10.255.1.4)"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Destination 10.255.0.1 from 10.255.1.1 in VRF default",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Source: Loopback0 (IP: 10.255.1.1) - Destination: dc1-spine1 Loopback0 (IP: 10.255.0.1)"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Destination 10.255.0.2 from 10.255.1.1 in VRF default",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Source: Loopback0 (IP: 10.255.1.1) - Destination: dc1-spine2 Loopback0 (IP: 10.255.0.2)"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Destination 10.255.255.0 from 10.255.255.1 in VRF default",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Source: P2P Interface Ethernet1 (IP: 10.255.255.1) - Destination: dc1-spine1 Ethernet1 (IP: 10.255.255.0)"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Destination 10.255.255.2 from 10.255.255.3 in VRF default",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Source: P2P Interface Ethernet2 (IP: 10.255.255.3) - Destination: dc1-spine2 Ethernet1 (IP: 10.255.255.2)"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyEnvironmentCooling",
+    "categories": [
+      "hardware"
+    ],
+    "description": "Verifies the status of power supply fans and all fan trays.",
+    "result": "skipped",
+    "messages": [
+      "VerifyEnvironmentCooling test is not supported on cEOSLab"
+    ],
+    "custom_field": "Accepted States: 'ok'"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyEnvironmentPower",
+    "categories": [
+      "hardware"
+    ],
+    "description": "Verifies the power supplies state and input voltage.",
+    "result": "skipped",
+    "messages": [
+      "VerifyEnvironmentPower test is not supported on cEOSLab"
+    ],
+    "custom_field": "Accepted States: 'ok'"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyTemperature",
+    "categories": [
+      "hardware"
+    ],
+    "description": "Verifies if the device temperature is within acceptable limits.",
+    "result": "skipped",
+    "messages": [
+      "VerifyTemperature test is not supported on cEOSLab"
+    ]
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyTransceiversManufacturers",
+    "categories": [
+      "hardware"
+    ],
+    "description": "Verifies if all the transceivers come from approved manufacturers.",
+    "result": "skipped",
+    "messages": [
+      "VerifyTransceiversManufacturers test is not supported on cEOSLab"
+    ],
+    "custom_field": "Accepted Manufacturers: 'Arista Networks', 'Arastra, Inc.', 'Not Present'"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Interface: Ethernet1",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Interface Ethernet1 - P2P_dc1-spine1_Ethernet1 = 'up'"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Interface: Ethernet2",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Interface Ethernet2 - P2P_dc1-spine2_Ethernet1 = 'up'"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Interface: Ethernet3",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Interface Ethernet3 - MLAG_dc1-leaf1b_Ethernet3 = 'up'"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Interface: Ethernet4",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Interface Ethernet4 - MLAG_dc1-leaf1b_Ethernet4 = 'up'"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Interface: Ethernet5",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Interface Ethernet5 - SERVER_server1_eth1 = 'up'"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Interface: Loopback0",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Interface Loopback0 - ROUTER_ID = 'up'"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Interface: Loopback1",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Interface Loopback1 - VXLAN_TUNNEL_SOURCE = 'up'"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Interface: Loopback10",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Interface Loopback10 - DIAG_VRF_VRF10 = 'up'"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Interface: Loopback11",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Interface Loopback11 - DIAG_VRF_VRF11 = 'up'"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Interface: Port-Channel3",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Interface Port-Channel3 - MLAG_dc1-leaf1b_Port-Channel3 = 'up'"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Interface: Port-Channel5",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Interface Port-Channel5 - SERVER_dc1-leaf1-server1_Bond1 = 'up'"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Interface: Vlan11",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Interface Vlan11 - VRF10_VLAN11 = 'up'"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Interface: Vlan12",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Interface Vlan12 - VRF10_VLAN12 = 'up'"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Interface: Vlan21",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Interface Vlan21 - VRF11_VLAN21 = 'up'"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Interface: Vlan22",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Interface Vlan22 - VRF11_VLAN22 = 'up'"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Interface: Vlan3009",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Interface Vlan3009 - MLAG_L3_VRF_VRF10 = 'up'"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Interface: Vlan3010",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Interface Vlan3010 - MLAG_L3_VRF_VRF11 = 'up'"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Interface: Vlan4093",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Interface Vlan4093 - MLAG_L3 = 'up'"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Interface: Vlan4094",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Interface Vlan4094 - MLAG = 'up'"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "atomic_results": [
+      {
+        "description": "Interface: Vxlan1",
+        "result": "success"
+      }
+    ],
+    "custom_field": "Interface Vxlan1 = 'up'"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyMlagStatus",
+    "categories": [
+      "mlag"
+    ],
+    "description": "Verifies the health status of the MLAG configuration.",
+    "result": "success"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyRoutingProtocolModel",
+    "categories": [
+      "routing"
+    ],
+    "description": "Verifies the configured routing protocol model.",
+    "result": "success",
+    "custom_field": "Routing protocol model: multi-agent"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyRoutingTableEntry",
+    "categories": [
+      "routing"
+    ],
+    "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
+    "result": "success",
+    "custom_field": "Route: 10.255.0.1 - Peer: dc1-spine1"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyRoutingTableEntry",
+    "categories": [
+      "routing"
+    ],
+    "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
+    "result": "success",
+    "custom_field": "Route: 10.255.0.2 - Peer: dc1-spine2"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyRoutingTableEntry",
+    "categories": [
+      "routing"
+    ],
+    "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
+    "result": "success",
+    "custom_field": "Route: 10.255.1.1 - Peer: dc1-leaf1a"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyRoutingTableEntry",
+    "categories": [
+      "routing"
+    ],
+    "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
+    "result": "success",
+    "custom_field": "Route: 10.255.1.2 - Peer: dc1-leaf1b"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyRoutingTableEntry",
+    "categories": [
+      "routing"
+    ],
+    "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
+    "result": "success",
+    "custom_field": "Route: 10.255.1.3 - Peer: dc1-leaf2a"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyRoutingTableEntry",
+    "categories": [
+      "routing"
+    ],
+    "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
+    "result": "success",
+    "custom_field": "Route: 10.255.1.4 - Peer: dc1-leaf2b"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyRoutingTableEntry",
+    "categories": [
+      "routing"
+    ],
+    "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
+    "result": "success",
+    "custom_field": "Route: 10.255.2.1 - Peer: dc1-leaf1a"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyRoutingTableEntry",
+    "categories": [
+      "routing"
+    ],
+    "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
+    "result": "success",
+    "custom_field": "Route: 10.255.2.3 - Peer: dc1-leaf2a"
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyNTP",
+    "categories": [
+      "system"
+    ],
+    "description": "Verifies if NTP is synchronised.",
+    "result": "failure",
+    "messages": [
+      "NTP status mismatch - Expected: synchronised Actual: NTP is disabled."
+    ]
+  },
+  {
+    "name": "dc1-leaf1a",
+    "test": "VerifyReloadCause",
+    "categories": [
+      "system"
+    ],
+    "description": "Verifies the last reload cause of the device.",
+    "result": "success"
+  }
+]

@@ -1,0 +1,19 @@
+# inventory/group_vars/all.yml
+ansible_connection: httpapi
+ansible_network_os: eos
+ansible_user: admin
+ansible_password: admin
+ansible_become: true
+ansible_become_method: enable
+ansible_become_password: admin
+ansible_httpapi_use_ssl: true
+ansible_httpapi_validate_certs: false
+ansible_httpapi_port: 443
+avd_ignore_requirements: true
+
+# AVD output directories
+root_dir: "{{ inventory_dir }}/.."
+output_dir_name: build
+intended_dir: "{{ root_dir }}/{{ output_dir_name }}/intended"
+structured_dir: "{{ root_dir }}/{{ output_dir_name }}/structured_configs"
+documentation_dir: "{{ root_dir }}/{{ output_dir_name }}/documentation"

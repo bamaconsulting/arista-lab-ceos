@@ -1,0 +1,10 @@
+# playbooks/01_build_structured_configs.yml
+---
+- name: Build AVD structured configurations
+  hosts: FABRIC
+  gather_facts: false
+
+  tasks:
+    - name: Build structured configs with eos_designs
+      ansible.builtin.import_role:
+        name: arista.avd.eos_designs

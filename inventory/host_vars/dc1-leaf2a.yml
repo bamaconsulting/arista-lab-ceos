@@ -1,0 +1,4 @@
+# inventory/host_vars/dc1-leaf2a.yml
+eos_cli: |
+  interface Port-Channel5
+     spanning-tree portfast edge

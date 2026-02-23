@@ -1,0 +1,53 @@
+# lab.clab.yml
+name: dc1_fabric
+
+topology:
+  nodes:
+    dc1-spine1: { kind: ceos, image: ceos-lab:4.35.1F, mgmt-ipv4: 172.100.100.10 }
+    dc1-spine2: { kind: ceos, image: ceos-lab:4.35.1F, mgmt-ipv4: 172.100.100.11 }
+    dc1-leaf1a: { kind: ceos, image: ceos-lab:4.35.1F, mgmt-ipv4: 172.100.100.101 }
+    dc1-leaf1b: { kind: ceos, image: ceos-lab:4.35.1F, mgmt-ipv4: 172.100.100.102 }
+    dc1-leaf2a: { kind: ceos, image: ceos-lab:4.35.1F, mgmt-ipv4: 172.100.100.103 }
+    dc1-leaf2b: { kind: ceos, image: ceos-lab:4.35.1F, mgmt-ipv4: 172.100.100.104 }
+    
+    server1: 
+      kind: linux
+      image: nicolaka/netshoot
+      mgmt-ipv4: 172.100.100.201
+      binds:
+        - scripts/setup-server1.sh:/setup-server.sh  # Ścieżka do folderu scripts
+      exec:
+        - bash /setup-server.sh
+
+    server2: 
+      kind: linux
+      image: nicolaka/netshoot
+      mgmt-ipv4: 172.100.100.202
+      binds:
+        - scripts/setup-server2.sh:/setup-server.sh  # Ścieżka do folderu scripts
+      exec:
+        - bash /setup-server.sh
+  links:
+    - endpoints: ["dc1-spine1:eth1", "dc1-leaf1a:eth1"]
+    - endpoints: ["dc1-spine1:eth2", "dc1-leaf1b:eth1"]
+    - endpoints: ["dc1-spine1:eth3", "dc1-leaf2a:eth1"]
+    - endpoints: ["dc1-spine1:eth4", "dc1-leaf2b:eth1"]
+    - endpoints: ["dc1-spine2:eth1", "dc1-leaf1a:eth2"]
+    - endpoints: ["dc1-spine2:eth2", "dc1-leaf1b:eth2"]
+    - endpoints: ["dc1-spine2:eth3", "dc1-leaf2a:eth2"]
+    - endpoints: ["dc1-spine2:eth4", "dc1-leaf2b:eth2"]
+    # MLAG Peer-links
+    - endpoints: ["dc1-leaf1a:eth3", "dc1-leaf1b:eth3"]
+    - endpoints: ["dc1-leaf1a:eth4", "dc1-leaf1b:eth4"]
+    - endpoints: ["dc1-leaf2a:eth3", "dc1-leaf2b:eth3"]
+    - endpoints: ["dc1-leaf2a:eth4", "dc1-leaf2b:eth4"]
+    # Server 1 connected to MLAG pair (Leaf1a and Leaf1b)
+    - endpoints: ["dc1-leaf1a:eth5", "server1:eth1"]
+    - endpoints: ["dc1-leaf1b:eth5", "server1:eth2"]
+    # Server 2 connected to MLAG pair (Leaf2a and Leaf2b)
+    - endpoints: ["dc1-leaf2a:eth5", "server2:eth1"]
+    - endpoints: ["dc1-leaf2b:eth5", "server2:eth2"]
+
+mgmt:
+  network: custom_mgmt
+  ipv4-subnet: 172.100.100.0/24

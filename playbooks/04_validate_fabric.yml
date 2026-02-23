@@ -1,0 +1,10 @@
+# playbooks/04_validate_fabric.yml
+---
+- name: Validate fabric state
+  hosts: FABRIC
+  gather_facts: false
+
+  tasks:
+    - name: Run AVD fabric validation with eos_validate_state
+      ansible.builtin.import_role:
+        name: arista.avd.eos_validate_state

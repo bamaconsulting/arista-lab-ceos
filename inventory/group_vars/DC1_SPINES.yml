@@ -1,0 +1,15 @@
+# inventory/group_vars/DC1_SPINES.yml
+type: spine
+
+spine:
+  defaults:
+    platform: cEOSLab
+    bgp_as: 65000
+    loopback_ipv4_pool: 10.255.0.0/24
+  nodes:
+    - name: dc1-spine1
+      id: 1
+      mgmt_ip: 172.100.100.10/24
+    - name: dc1-spine2
+      id: 2
+      mgmt_ip: 172.100.100.11/24

@@ -1,0 +1,10 @@
+# playbooks/02_build_device_cli.yml
+---
+- name: Build EOS CLI configurations and documentation
+  hosts: FABRIC
+  gather_facts: false
+
+  tasks:
+    - name: Build device CLI configs and docs with eos_cli_config_gen
+      ansible.builtin.import_role:
+        name: arista.avd.eos_cli_config_gen

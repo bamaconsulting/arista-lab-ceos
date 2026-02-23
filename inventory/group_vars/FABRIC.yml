@@ -1,0 +1,18 @@
+# inventory/group_vars/FABRIC.yml
+fabric_name: FABRIC
+
+# Design type
+design:
+  type: l3ls-evpn
+
+# Routing defaults
+underlay_routing_protocol: ebgp
+overlay_routing_protocol: ebgp
+evpn_encapsulation: vxlan
+
+aaa_settings:
+  local_users:
+    - name: admin
+      privilege: 15
+      role: network-admin
+      sha512_password: "$6$gXhGjhvsAFismEVc$rWdztatFHtEAxaHkdefoOWMjkSMTvWGI4TRm3vcG/n91uIeIzA931GPGWrqUabZUNAmt8hGvsMUzI6K9uCWBT1"

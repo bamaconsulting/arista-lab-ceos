@@ -1,0 +1,10 @@
+# playbooks/03_deploy_configs.yml
+---
+- name: Deploy EOS configuration via eAPI
+  hosts: FABRIC
+  gather_facts: false
+
+  tasks:
+    - name: Deploy configs to devices with eos_config_deploy_eapi
+      ansible.builtin.import_role:
+        name: arista.avd.eos_config_deploy_eapi
