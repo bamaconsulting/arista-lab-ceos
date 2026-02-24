@@ -5,3 +5,5 @@ collections:
     version: ">=5.7.0,<5.8.0"
   - name: arista.eos
     version: ">=10.0.0,<11.0.0"
+  - name: community.general
+    version: ">=9.0.0,<11.0.0"

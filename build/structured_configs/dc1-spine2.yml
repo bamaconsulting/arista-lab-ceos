@@ -1,5 +1,3 @@
-# build/structured_configs/dc1-spine2.yml
-# Purpose: Auto-generated AVD structured configuration data for device dc1-spine2.
 aaa_root:
   disabled: true
 config_end: true

@@ -10,6 +10,8 @@ ansible_become_password: admin
 ansible_httpapi_use_ssl: true
 ansible_httpapi_validate_certs: false
 ansible_httpapi_port: 443
+ansible_command_timeout: 120
+ansible_connect_timeout: 60
 avd_ignore_requirements: true
 
 # AVD output directories

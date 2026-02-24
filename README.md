@@ -40,11 +40,28 @@ containerlab inspect -t lab.clab.yml
 ## 4) Run separate AVD playbooks
 
 ```bash
-ansible-playbook playbooks/01_build_structured_configs.yml
-ansible-playbook playbooks/02_build_device_cli.yml
-ansible-playbook playbooks/03_deploy_configs.yml
-ansible-playbook playbooks/04_validate_fabric.yml
+./scripts/run-playbook.sh playbooks/01_build_structured_configs.yml
+./scripts/run-playbook.sh playbooks/02_build_device_cli.yml
+./scripts/run-playbook.sh playbooks/03_deploy_configs.yml
+./scripts/run-playbook.sh playbooks/04_validate_fabric.yml
 ```
+
+Safe migration variant based on ANTA (`v2`) without replacing the legacy validator:
+
+```bash
+./scripts/run-playbook.sh playbooks/04_validate_fabric_v2.yml
+```
+
+or run all in sequence:
+
+```bash
+./scripts/run-playbooks.sh
+```
+
+Logs are written to `logs/` using this pattern:
+
+- `<playbook_name>_YYYYMMDD-HHMMSS.log`
+- `<playbook_name>_latest.log` (symlink to latest run)
 
 AVD output is generated in `build/`:
 

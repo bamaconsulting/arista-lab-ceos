@@ -1,0 +1,32 @@
+# playbooks/04_validate_fabric_v2.yml
+# Purpose: Runs AVD anta_runner in a lab-safe mode without changing the legacy validate playbook.
+---
+- name: Validate fabric state (v2 - ANTA)
+  hosts: FABRIC
+  gather_facts: false
+
+  tasks:
+    - name: Run AVD fabric validation with anta_runner (lab-safe profile)
+      ansible.builtin.import_role:
+        name: arista.avd.anta_runner
+      vars:
+        avd_catalogs_dir: "{{ root_dir }}/build/test_catalogs"
+        user_catalogs_dir: "{{ root_dir }}/custom_anta_catalogs"
+        anta_reports_dir: "{{ root_dir }}/reports"
+        anta_report_csv_path: "{{ root_dir }}/reports/FABRIC-state-v2.csv"
+        anta_report_md_path: "{{ root_dir }}/reports/FABRIC-state-v2.md"
+        anta_report_json_path: "{{ root_dir }}/reports/FABRIC-state-v2.json"
+        avd_catalogs_filters:
+          - skip_tests:
+              # VerifyNTP checks if devices are NTP-synchronized.
+              # Skipped in this cEOS lab because NTP is intentionally not configured,
+              # which causes deterministic false failures on all nodes.
+              - VerifyNTP
+              # VerifyInterfaceDiscards checks interface discard counters are zero.
+              # Skipped because transient/non-service discards on Management0 are expected
+              # in containerized cEOS environments and do not indicate fabric issues.
+              - VerifyInterfaceDiscards
+              # VerifyLoggingErrors checks for error patterns in system logs.
+              # Skipped since lab boot/reconfigure sequences generate benign log entries
+              # that are not actionable for this validation profile.
+              - VerifyLoggingErrors
