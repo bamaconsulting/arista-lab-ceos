@@ -8,6 +8,10 @@ from pathlib import Path
 import pyeapi
 
 
+ANSI_YELLOW = "\033[33m"
+ANSI_RESET = "\033[0m"
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Run 'show bgp evpn summary' on all leafs via eAPI")
     parser.add_argument("--inventory", default="inventory/inventory.yml", help="Path to Ansible inventory")
@@ -92,7 +96,8 @@ def main() -> int:
 
     failures = 0
     for inventory_host, ip in hosts:
-        print(f"\n{'=' * 20} {inventory_host} ({ip}) {'=' * 20}")
+        header = f"{'=' * 20} {inventory_host} ({ip}) {'=' * 20}"
+        print(f"\n{ANSI_YELLOW}{header}{ANSI_RESET}")
         try:
             node = pyeapi.client.connect(
                 transport=args.transport,

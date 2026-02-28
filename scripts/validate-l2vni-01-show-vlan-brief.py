@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -10,13 +11,14 @@ import pyeapi
 
 
 YELLOW = "\033[33m"
+GREEN = "\033[32m"
 RESET = "\033[0m"
 
 
 def parse_args() -> argparse.Namespace:
-	parser = argparse.ArgumentParser(description="Run 'show ip route' on all FABRIC devices via eAPI")
+	parser = argparse.ArgumentParser(description="Run 'show vlan brief' on all leafs via eAPI")
 	parser.add_argument("--inventory", default="inventory/inventory.yml", help="Path to Ansible inventory")
-	parser.add_argument("--group", default="FABRIC", help="Inventory group to query")
+	parser.add_argument("--group", default="DC1_L3_LEAVES", help="Inventory group with leaf devices")
 	parser.add_argument("--username", default="admin", help="eAPI username")
 	parser.add_argument("--password", default="admin", help="eAPI password")
 	parser.add_argument("--transport", choices=["http", "https"], default="https", help="eAPI transport")
@@ -87,6 +89,21 @@ def colorize(text: str, color: str) -> str:
 	return f"{color}{text}{RESET}"
 
 
+def colorize_vlan_output(output: str) -> str:
+	"""Highlight two-digit VLAN entries (10-99) in green."""
+	lines = []
+	vlan_line_re = re.compile(r"^\s*(\d{2})\s+")
+
+	for line in output.splitlines():
+		match = vlan_line_re.match(line)
+		if match:
+			lines.append(colorize(line, GREEN))
+		else:
+			lines.append(line)
+
+	return "\n".join(lines)
+
+
 def main() -> int:
 	args = parse_args()
 	inventory_path = resolve_inventory_path(args.inventory)
@@ -115,8 +132,8 @@ def main() -> int:
 				return_node=True,
 				timeout=30,
 			)
-			response = node.enable(["show ip route"], encoding="text")[0]
-			print(get_output(response).rstrip())
+			response = node.enable(["show vlan brief"], encoding="text")[0]
+			print(colorize_vlan_output(get_output(response).rstrip()))
 		except Exception as exc:
 			failures += 1
 			print(f"ERROR: {exc}")

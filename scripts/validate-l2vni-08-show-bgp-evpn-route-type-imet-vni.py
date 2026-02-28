@@ -10,17 +10,20 @@ import pyeapi
 
 
 YELLOW = "\033[33m"
+GREEN = "\033[32m"
 RESET = "\033[0m"
 
 
 def parse_args() -> argparse.Namespace:
-	parser = argparse.ArgumentParser(description="Run 'show ip route' on all FABRIC devices via eAPI")
+	parser = argparse.ArgumentParser(description="Run 'show bgp evpn route-type imet vni <VNI>' on selected devices via eAPI")
 	parser.add_argument("--inventory", default="inventory/inventory.yml", help="Path to Ansible inventory")
-	parser.add_argument("--group", default="FABRIC", help="Inventory group to query")
+	parser.add_argument("--group", default="DC1_L3_LEAVES", help="Inventory group with devices")
 	parser.add_argument("--username", default="admin", help="eAPI username")
 	parser.add_argument("--password", default="admin", help="eAPI password")
 	parser.add_argument("--transport", choices=["http", "https"], default="https", help="eAPI transport")
 	parser.add_argument("--port", type=int, default=443, help="eAPI port")
+	parser.add_argument("--timeout", type=int, default=30, help="eAPI connection timeout in seconds")
+	parser.add_argument("--vni", type=int, help="VNI ID to query (1-16777215)")
 	return parser.parse_args()
 
 
@@ -87,9 +90,64 @@ def colorize(text: str, color: str) -> str:
 	return f"{color}{text}{RESET}"
 
 
+def highlight_mac_ip_mappings(output: str) -> str:
+	lines = output.splitlines()
+	highlighted = []
+	index = 0
+
+	while index < len(lines):
+		line = lines[index]
+
+		if "RD:" in line and " imet " in line:
+			highlighted.append(colorize(line, GREEN))
+			index += 1
+
+			while index < len(lines):
+				next_line = lines[index]
+				stripped = next_line.lstrip()
+
+				if stripped.startswith("*") and "RD:" in next_line and " imet " in next_line:
+					break
+
+				if next_line.startswith((" ", "\t")) and next_line.strip() != "":
+					highlighted.append(colorize(next_line, GREEN))
+					index += 1
+					continue
+
+				break
+
+			continue
+
+		highlighted.append(line)
+		index += 1
+
+	return "\n".join(highlighted)
+
+
+def ask_for_vni() -> int:
+	while True:
+		value = input("Enter VNI ID to query (1-16777215): ").strip()
+		if not value.isdigit():
+			print("Invalid VNI ID. Please enter a number between 1 and 16777215.")
+			continue
+		vni = int(value)
+		if 1 <= vni <= 16777215:
+			return vni
+		print("Invalid VNI ID. Please enter a number between 1 and 16777215.")
+
+
+def validate_vni(vni: int) -> bool:
+	return 1 <= vni <= 16777215
+
+
 def main() -> int:
 	args = parse_args()
 	inventory_path = resolve_inventory_path(args.inventory)
+
+	vni_id = args.vni if args.vni is not None else ask_for_vni()
+	if not validate_vni(vni_id):
+		print(f"Invalid VNI ID: {vni_id} (valid range: 1-16777215)")
+		return 2
 
 	try:
 		hosts = load_hosts(inventory_path, args.group)
@@ -101,7 +159,9 @@ def main() -> int:
 		print("No hosts found.")
 		return 2
 
+	command = f"show bgp evpn route-type imet vni {vni_id}"
 	failures = 0
+
 	for inventory_host, ip in hosts:
 		header = f"\n{'=' * 20} {inventory_host} ({ip}) {'=' * 20}"
 		print(colorize(header, YELLOW))
@@ -113,10 +173,10 @@ def main() -> int:
 				password=args.password,
 				port=args.port,
 				return_node=True,
-				timeout=30,
+				timeout=args.timeout,
 			)
-			response = node.enable(["show ip route"], encoding="text")[0]
-			print(get_output(response).rstrip())
+			response = node.enable([command], encoding="text")[0]
+			print(highlight_mac_ip_mappings(get_output(response).rstrip()))
 		except Exception as exc:
 			failures += 1
 			print(f"ERROR: {exc}")
@@ -126,4 +186,3 @@ def main() -> int:
 
 if __name__ == "__main__":
 	raise SystemExit(main())
-

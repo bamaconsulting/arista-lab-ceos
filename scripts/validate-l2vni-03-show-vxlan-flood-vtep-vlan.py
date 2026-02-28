@@ -14,13 +14,15 @@ RESET = "\033[0m"
 
 
 def parse_args() -> argparse.Namespace:
-	parser = argparse.ArgumentParser(description="Run 'show ip route' on all FABRIC devices via eAPI")
+	parser = argparse.ArgumentParser(description="Run 'show vxlan flood vtep vlan <VLAN>' on selected devices via eAPI")
 	parser.add_argument("--inventory", default="inventory/inventory.yml", help="Path to Ansible inventory")
-	parser.add_argument("--group", default="FABRIC", help="Inventory group to query")
+	parser.add_argument("--group", default="DC1_L3_LEAVES", help="Inventory group with devices")
 	parser.add_argument("--username", default="admin", help="eAPI username")
 	parser.add_argument("--password", default="admin", help="eAPI password")
 	parser.add_argument("--transport", choices=["http", "https"], default="https", help="eAPI transport")
 	parser.add_argument("--port", type=int, default=443, help="eAPI port")
+	parser.add_argument("--timeout", type=int, default=30, help="eAPI connection timeout in seconds")
+	parser.add_argument("--vlan", type=int, help="VLAN ID to query (1-4094)")
 	return parser.parse_args()
 
 
@@ -87,9 +89,30 @@ def colorize(text: str, color: str) -> str:
 	return f"{color}{text}{RESET}"
 
 
+def ask_for_vlan() -> int:
+	while True:
+		value = input("Enter VLAN ID to query (1-4094): ").strip()
+		if not value.isdigit():
+			print("Invalid VLAN ID. Please enter a number between 1 and 4094.")
+			continue
+		vlan = int(value)
+		if 1 <= vlan <= 4094:
+			return vlan
+		print("Invalid VLAN ID. Please enter a number between 1 and 4094.")
+
+
+def validate_vlan(vlan: int) -> bool:
+	return 1 <= vlan <= 4094
+
+
 def main() -> int:
 	args = parse_args()
 	inventory_path = resolve_inventory_path(args.inventory)
+
+	vlan_id = args.vlan if args.vlan is not None else ask_for_vlan()
+	if not validate_vlan(vlan_id):
+		print(f"Invalid VLAN ID: {vlan_id} (valid range: 1-4094)")
+		return 2
 
 	try:
 		hosts = load_hosts(inventory_path, args.group)
@@ -102,6 +125,8 @@ def main() -> int:
 		return 2
 
 	failures = 0
+	command = f"show vxlan flood vtep vlan {vlan_id}"
+
 	for inventory_host, ip in hosts:
 		header = f"\n{'=' * 20} {inventory_host} ({ip}) {'=' * 20}"
 		print(colorize(header, YELLOW))
@@ -113,9 +138,9 @@ def main() -> int:
 				password=args.password,
 				port=args.port,
 				return_node=True,
-				timeout=30,
+				timeout=args.timeout,
 			)
-			response = node.enable(["show ip route"], encoding="text")[0]
+			response = node.enable([command], encoding="text")[0]
 			print(get_output(response).rstrip())
 		except Exception as exc:
 			failures += 1
@@ -126,4 +151,3 @@ def main() -> int:
 
 if __name__ == "__main__":
 	raise SystemExit(main())
-
