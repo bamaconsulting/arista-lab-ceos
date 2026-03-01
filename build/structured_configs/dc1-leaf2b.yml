@@ -89,7 +89,7 @@ management_interfaces:
   description: OOB_MANAGEMENT
   shutdown: false
   vrf: MGMT
-  ip_address: 172.100.100.104/24
+  ip_address: 172.16.100.104/24
   type: oob
 metadata:
   is_deployed: true

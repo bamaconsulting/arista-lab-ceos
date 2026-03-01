@@ -1025,12 +1025,12 @@
         "messages": [],
         "atomic_results": [
             {
-                "description": "Interface: Port-Channel3",
+                "description": "Interface: Port-Channel5",
                 "result": "success",
                 "messages": []
             },
             {
-                "description": "Interface: Port-Channel5",
+                "description": "Interface: Port-Channel3",
                 "result": "success",
                 "messages": []
             }
@@ -2227,12 +2227,12 @@
         "messages": [],
         "atomic_results": [
             {
-                "description": "Interface: Port-Channel5",
+                "description": "Interface: Port-Channel3",
                 "result": "success",
                 "messages": []
             },
             {
-                "description": "Interface: Port-Channel3",
+                "description": "Interface: Port-Channel5",
                 "result": "success",
                 "messages": []
             }

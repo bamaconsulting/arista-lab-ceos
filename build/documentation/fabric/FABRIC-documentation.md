@@ -17,12 +17,12 @@
 
 | POD | Type | Node | Management IP | Platform | Provisioned in CloudVision | Serial Number |
 | --- | ---- | ---- | ------------- | -------- | -------------------------- | ------------- |
-| DC1 | l3leaf | dc1-leaf1a | 172.100.100.101/24 | cEOSLab | Provisioned | - |
-| DC1 | l3leaf | dc1-leaf1b | 172.100.100.102/24 | cEOSLab | Provisioned | - |
-| DC1 | l3leaf | dc1-leaf2a | 172.100.100.103/24 | cEOSLab | Provisioned | - |
-| DC1 | l3leaf | dc1-leaf2b | 172.100.100.104/24 | cEOSLab | Provisioned | - |
-| DC1 | spine | dc1-spine1 | 172.100.100.10/24 | cEOSLab | Provisioned | - |
-| DC1 | spine | dc1-spine2 | 172.100.100.11/24 | cEOSLab | Provisioned | - |
+| DC1 | l3leaf | dc1-leaf1a | 172.16.100.101/24 | cEOSLab | Provisioned | - |
+| DC1 | l3leaf | dc1-leaf1b | 172.16.100.102/24 | cEOSLab | Provisioned | - |
+| DC1 | l3leaf | dc1-leaf2a | 172.16.100.103/24 | cEOSLab | Provisioned | - |
+| DC1 | l3leaf | dc1-leaf2b | 172.16.100.104/24 | cEOSLab | Provisioned | - |
+| DC1 | spine | dc1-spine1 | 172.16.100.10/24 | cEOSLab | Provisioned | - |
+| DC1 | spine | dc1-spine2 | 172.16.100.11/24 | cEOSLab | Provisioned | - |
 
 > Provision status is based on Ansible inventory declaration and do not represent real status from CloudVision.
 

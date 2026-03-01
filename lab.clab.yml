@@ -4,17 +4,17 @@ name: dc1_fabric
 
 topology:
   nodes:
-    dc1-spine1: { kind: ceos, image: ceos-lab:4.35.1F, mgmt-ipv4: 172.100.100.10 }
-    dc1-spine2: { kind: ceos, image: ceos-lab:4.35.1F, mgmt-ipv4: 172.100.100.11 }
-    dc1-leaf1a: { kind: ceos, image: ceos-lab:4.35.1F, mgmt-ipv4: 172.100.100.101 }
-    dc1-leaf1b: { kind: ceos, image: ceos-lab:4.35.1F, mgmt-ipv4: 172.100.100.102 }
-    dc1-leaf2a: { kind: ceos, image: ceos-lab:4.35.1F, mgmt-ipv4: 172.100.100.103 }
-    dc1-leaf2b: { kind: ceos, image: ceos-lab:4.35.1F, mgmt-ipv4: 172.100.100.104 }
+    dc1-spine1: { kind: ceos, image: ceos-lab:4.35.1F, mgmt-ipv4: 172.16.100.10 }
+    dc1-spine2: { kind: ceos, image: ceos-lab:4.35.1F, mgmt-ipv4: 172.16.100.11 }
+    dc1-leaf1a: { kind: ceos, image: ceos-lab:4.35.1F, mgmt-ipv4: 172.16.100.101 }
+    dc1-leaf1b: { kind: ceos, image: ceos-lab:4.35.1F, mgmt-ipv4: 172.16.100.102 }
+    dc1-leaf2a: { kind: ceos, image: ceos-lab:4.35.1F, mgmt-ipv4: 172.16.100.103 }
+    dc1-leaf2b: { kind: ceos, image: ceos-lab:4.35.1F, mgmt-ipv4: 172.16.100.104 }
     
     server1: 
       kind: linux
       image: nicolaka/netshoot
-      mgmt-ipv4: 172.100.100.201
+      mgmt-ipv4: 172.16.100.201
       binds:
         - scripts/setup-server1.sh:/setup-server.sh
       exec:
@@ -23,7 +23,7 @@ topology:
     server2: 
       kind: linux
       image: nicolaka/netshoot
-      mgmt-ipv4: 172.100.100.202
+      mgmt-ipv4: 172.16.100.202
       binds:
         - scripts/setup-server2.sh:/setup-server.sh
       exec:
@@ -48,4 +48,4 @@ topology:
 
 mgmt:
   network: custom_mgmt
-  ipv4-subnet: 172.100.100.0/24
+  ipv4-subnet: 172.16.100.0/24
